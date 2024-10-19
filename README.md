@@ -7,7 +7,7 @@ Customers, Orders and Article List Example
 El fragmento relevante del ejemplo es este:
 
 cpp:
-void forEachArticle(std::function<void(Article*)> callback) {
+void forEach(std::function<void(Article*)> callback) {
     Node* current = head;
     while (current != nullptr) {
         callback(current->article);  // Aquí se ejecuta la función lambda.
@@ -24,7 +24,7 @@ callback es el nombre del parámetro que representa la función que se ejecutar�
 callback(current->article):
 
 Este es el punto donde se llama a la función almacenada en callback, pasando el puntero al artículo actual (current->article).
-Cuando invocamos este método forEachArticle, pasamos una función lambda que define el comportamiento que queremos aplicar a cada artículo.
+Cuando invocamos este método forEach, pasamos una función lambda que define el comportamiento que queremos aplicar a cada artículo.
 Uso de la lambda:
 
 Una función lambda es una función anónima que puedes definir "en línea" y que puede capturar variables del contexto externo.
@@ -32,7 +32,7 @@ La sintaxis de una lambda es: [captura](parámetros) -> tipo_retornado { cuerpo 
 Por ejemplo, si quieres imprimir el nombre de cada artículo, puedes usar esta lambda cuando llames a forEachArticle:
 
 cpp:
-articlesRepo.forEachArticle([](Article* article) {
+articleList.forEach([](Article* article) {
     std::cout << "Article: " << article->getName() << std::endl;
 });
 
